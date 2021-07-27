@@ -1,2 +1,2 @@
 # homeWork
-# started pack for homework
+# starter pack for homework
