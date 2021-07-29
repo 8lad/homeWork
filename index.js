@@ -119,7 +119,7 @@ showYourDestination(porch, floor);
 const medianNumber = 6;
 const secondMedianNumber = 8;
 let arr = ['#'];
-let secondArr = ['#']
+let secondArr = ['#'];
 let sideSymbols = medianNumber - 1;
 let secondSideSymbols = secondMedianNumber - 1;
 
