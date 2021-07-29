@@ -26,6 +26,7 @@ function findingFactorial(number) {
         number *= i;
     }
     console.log(number);
+    return number;
 }
 
 findingFactorial(testNumber);
