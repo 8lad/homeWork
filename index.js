@@ -58,29 +58,56 @@ function countingPaperPacks(paperInBox, weeklyUsage, weeks) {
 
 countingPaperPacks(sheetsInReamPaper, consumptionPerWeek, weeksAmount);
 
+
+
 // Fourth task
 
 
 const roomsOnFloor = 3;
 const floors = 9;
 const roomNumber = 456;
-let porch;
-let floor;
+const roomsInPorch = roomsOnFloor * floors;
+let porch = findingPorchNumber(roomNumber, roomsInPorch);
+let floor = findingFloorNumber(roomNumber, roomsInPorch, roomsOnFloor);
 
-function findingAdress(roomsOnFloor, floors, roomNumber) {
-    let roomsInPorch = roomsOnFloor * floors;
+function findingPorchNumber(roomNumber, roomsInPorch) {
+    if (roomNumber <= 0 || roomsInPorch <= 0) {
+        return false;
+    }
     let roomsFor = roomNumber;
     let porchNumber;
-    let floorNumberLeft;
-    console.log(roomsInPorch, roomsFor);
     for (let i = 1; i > 0; i++) {
         roomsFor -= roomsInPorch;
         if (roomsFor <= 0) {
-            floorNumberLeft = roomNumber % roomsInPorch;
             porchNumber = i;
-            return { porchNumber, floorNumberLeft };
+            return porchNumber;
         }
     }
-    console.log(porchNumber, floorNumberLeft);
+    return porchNumber;
 }
-findingAdress(roomsOnFloor, floors, roomNumber);
+
+function findingFloorNumber(roomNumber, roomsInPorch, roomsOnFloor) {
+    if (roomNumber <= 0 || roomsInPorch <= 0 || roomsOnFloor <= 0) {
+        return false;
+    }
+    let roomsLeft = roomNumber % roomsInPorch;
+    let floorNumber;
+    for (let i = 1; i > 0; i++) {
+        roomsLeft -= roomsOnFloor;
+        if (roomsLeft <= 0) {
+            floorNumber = i;
+            return floorNumber;
+        }
+    }
+    return floorNumber;
+}
+
+function showYourDestination(porch, floor) {
+    if (!porch || !floor) {
+        return console.log('Uncorrect input data');
+    } else {
+        return console.log(`Your destination is ${porch} porch and ${floor} floor`);
+    }
+}
+
+showYourDestination(porch, floor);
