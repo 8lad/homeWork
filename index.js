@@ -112,3 +112,45 @@ function showYourDestination(porch, floor) {
 }
 
 showYourDestination(porch, floor);
+
+
+// Fifth task
+
+const medianNumber = 6;
+const secondMedianNumber = 8;
+let arr = ['#'];
+let secondArr = ['#']
+let sideSymbols = medianNumber - 1;
+let secondSideSymbols = secondMedianNumber - 1;
+
+
+function creatingPyramid(arr, sideSymbols, medianNumber) {
+    for (let i = 0; i < medianNumber; i++) {
+        if (i === 0) {
+            for (let i = 0; i < sideSymbols; i++) {
+                arr.push('-');
+                arr.unshift('-');
+            }
+            console.log(arr.join(''));
+
+        } else {
+            for (let i = 0; i < sideSymbols; i++) {
+                arr.pop();
+                arr.shift();
+            }
+            --sideSymbols;
+            arr.push('#');
+            arr.unshift('#');
+
+            for (let i = 0; i < sideSymbols; i++) {
+                arr.push('-');
+                arr.unshift('-');
+            }
+            console.log(arr.join(''));
+        }
+    }
+}
+
+
+creatingPyramid(secondArr, sideSymbols, medianNumber);
+creatingPyramid(arr, secondSideSymbols, secondMedianNumber);
