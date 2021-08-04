@@ -28,7 +28,7 @@ console.log(result);
 
 // The second task
 
-const amount = 12;
+const amount = 9;
 
 function getArray(amount) {
     let result = [];
@@ -59,7 +59,7 @@ const namesOfDays = {
     en: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 };
 const lang = 'ru';
-const day = 7;
+const day = 2;
 
 function getNameOfDay(lang, day, obj) {
     if ((lang === 'ru' || lang === 'en') && (day <= 7 && day >= 1)) {
@@ -74,7 +74,7 @@ getNameOfDay(lang, day, namesOfDays);
 
 // The fourth task
 
-const singleArray = [19, 5, 42, 2, 77];
+const singleArray = [2 ,19, 5, 42, 2, 77];
 
 function findTwoMinValues(array) {
     let result;
@@ -85,7 +85,10 @@ function findTwoMinValues(array) {
         return console.log('Your array does\'t have enough numbers');
     }
     newArray.sort((a, b) => {
-        return a - b;
+        if (a - b !== 0) {
+            return a - b;
+        }
+        return console.log('There are two same numbers in your array');
     });
     result = newArray[0] + newArray[1];
     return console.log(result);
@@ -96,14 +99,15 @@ findTwoMinValues(singleArray);
 // The fifth task
 
 
-const binaryArray = [1, 1, 1, 0, 0, 1];
+const binaryArray = [1, 0, 1, 0, 1];
+turnFromBinaryToDecimal(binaryArray);
 
 function turnFromBinaryToDecimal(array) {
     let result = 0;
     let counter = 1;
     array.reverse();
     for (let key in array) {
-        if (array[key] > 1 || array[key] < 0) {
+        if (array[key] > 1 || array[key] < 0 || typeof(array[key]) !== 'number') {
             return console.log('Ivalid values in your array');
         }
     }
@@ -117,6 +121,3 @@ function turnFromBinaryToDecimal(array) {
     }
     return console.log(result);
 }
-
-
-turnFromBinaryToDecimal(binaryArray);
