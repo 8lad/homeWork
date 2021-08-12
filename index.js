@@ -1,13 +1,11 @@
 "use strict";
 
 // The first task
-
 class Student {
   static id = 1;
   static amountFreePayment = 5;
-  static listOfStudents = Student.constructArraySelfPayment(
-    Student.createNewStudentsList(studentArr)
-  );
+  static listOfStudents = [];
+
   constructor(enrollee) {
     this.id = Student.id++;
     this.name = enrollee.name;
@@ -16,14 +14,7 @@ class Student {
     this.schoolPoint = enrollee.schoolPoint;
     this.course = enrollee.course;
     this.isSelfPayment = this.setSelfPayment();
-  }
-  static createNewStudentsList(arr) {
-    let result = arr.map((item) => new Student(item));
-    return result;
-  }
-  static getAllSelfPayment(arr) {
-    result = arr.map((item) => item.isSelfPayment == true);
-    return result;
+    Student.listOfStudents.push(this);
   }
   static constructArraySelfPayment(arr) {
     let counter = 0;
@@ -69,7 +60,20 @@ class Student {
   }
 }
 
-new Student(Student.listOfStudents[0]);
+new Student(studentArr[0]);
+new Student(studentArr[1]);
+new Student(studentArr[2]);
+new Student(studentArr[3]);
+new Student(studentArr[4]);
+new Student(studentArr[5]);
+new Student(studentArr[6]);
+new Student(studentArr[7]);
+new Student(studentArr[8]);
+new Student(studentArr[9]);
+new Student(studentArr[10]);
+
+console.log(Student.listOfStudents);
+Student.constructArraySelfPayment(Student.listOfStudents);
 console.log(Student.listOfStudents);
 
 // The secont task
