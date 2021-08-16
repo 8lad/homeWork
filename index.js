@@ -55,3 +55,44 @@ const findTime = () => {
   };
 };
 const getTime = findTime();
+
+// The fourth task
+
+const time = 65;
+
+const timer = (time) => {
+  if (typeof time !== "number" || time < 0) {
+    return console.log("incorrect value");
+  }
+  let minutes = Math.trunc(time / 60);
+  let seconds = time % 60;
+
+  let counter = setInterval(() => {
+    if (seconds >= 0) {
+      if (seconds !== 59) {
+        console.log(
+          `${minutes < 10 ? "0" + minutes : minutes}:${
+            seconds < 10 ? "0" + seconds : seconds
+          }`
+        );
+      }
+      seconds--;
+    } else if (minutes > 0) {
+      minutes--;
+      seconds = 59;
+      console.log(
+        `${minutes < 10 ? "0" + minutes : minutes}:${
+          seconds < 10 ? "0" + seconds : seconds
+        }`
+      );
+    }
+    if (minutes <= 0 && seconds < 1) {
+      setTimeout(() => {
+        console.log("Time end");
+        return clearInterval(counter);
+      }, 1000);
+    }
+  }, 1000);
+};
+
+timer(time);
