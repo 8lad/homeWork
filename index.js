@@ -170,3 +170,22 @@ function getCondidatesByGender(gender) {
   }
 }
 console.log(getCondidatesByGender("female"));
+
+//  The tenth task
+
+Array.prototype.myJoin = function (a, b) {
+  b = !b ? "," : b;
+  if (!a) return "";
+
+  let output = "";
+  for (var i = 0; i < a.length; i++) {
+    output += i > 0 ? b : "";
+    output += a[i];
+  }
+
+  return output;
+};
+
+let arrayWithNames = ["Nick", "Kate", "Ivan", "Nikolay"];
+let srtingWithNames = arrayWithNames.myJoin(",");
+console.log(srtingWithNames);
