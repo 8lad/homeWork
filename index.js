@@ -13,6 +13,7 @@ const searchCandidatesByPhoneNumber = (phone, arr) => {
   });
   return result;
 };
+
 console.log(searchCandidatesByPhoneNumber("43", condidateArr));
 console.log(searchCandidatesByPhoneNumber("+1(869) 40", condidateArr));
 console.log(searchCandidatesByPhoneNumber("+1 (869) 408-3982", condidateArr));
@@ -73,9 +74,7 @@ const sortCandidatesArr = (sortBy) => {
 };
 
 console.log(sortCandidatesArr("asc"));
-
 console.log(sortCandidatesArr("desc"));
-
 console.log(sortCandidatesArr());
 
 //  The fourth task
