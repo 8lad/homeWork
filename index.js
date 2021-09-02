@@ -192,7 +192,21 @@ let strNames = arrNames.cJoin();
 
 console.log(strNames);
 
-Object.defineProperty(Array.prototype, "cReduce", {
-  value: {},
+Object.defineProperty(Array.prototype, "cReduceSum", {
+  value: function (callBack) {
+    let result = 0;
+
+    for (let i = 0; i < this.length; i++) {
+      callBack((result += this[i]));
+    }
+    return result;
+  },
+
   enumerable: false,
 });
+
+const numbersArr = [1, 2, 3, 4];
+
+let test = numbersArr.cReduceSum((result, item) => result + item);
+
+console.log(test);
