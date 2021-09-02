@@ -173,19 +173,26 @@ console.log(getCondidatesByGender("female"));
 
 //  The tenth task
 
-Array.prototype.myJoin = function (a, b) {
-  b = !b ? "," : b;
-  if (!a) return "";
+Object.defineProperty(Array.prototype, "cJoin", {
+  value: function (glue = ", ") {
+    if (typeof glue !== "string") throw new Error("Your glue is not a string");
+    let result = "";
+    for (let i = 0; i < this.length; i++) {
+      result += this[i];
+      result += i === this.length - 1 ? "" : glue;
+    }
+    return result;
+  },
+  enumerable: false,
+});
 
-  let output = "";
-  for (var i = 0; i < a.length; i++) {
-    output += i > 0 ? b : "";
-    output += a[i];
-  }
+let arrNames = ["Harold", "James", "Jane", "Merelin", "Sophia", "Bill"];
 
-  return output;
-};
+let strNames = arrNames.cJoin();
 
-let arrayWithNames = ["Nick", "Kate", "Ivan", "Nikolay"];
-let srtingWithNames = arrayWithNames.myJoin(",");
-console.log(srtingWithNames);
+console.log(strNames);
+
+Object.defineProperty(Array.prototype, "cReduce", {
+  value: {},
+  enumerable: false,
+});
