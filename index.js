@@ -207,6 +207,28 @@ Object.defineProperty(Array.prototype, "cReduceSum", {
 
 const numbersArr = [1, 2, 3, 4];
 
-let test = numbersArr.cReduceSum((result, item) => result + item);
+let test = numbersArr.cReduceSum((banana, pop) => banana + pop);
 
 console.log(test);
+
+// Object.defineProperty(Array.prototype, "cReduceSum", {
+//   value: function (
+//     callBack,
+//     item = this[0],
+//     index,
+//     array = this,
+//     previousValue = this[0]
+//   ) {
+//     let result = 0;
+//     for (let i = 0; i < array.length; i++) {
+//       item = array[i];
+//       index = i;
+//       previousValue = callBack((item = item) => {
+//         return (result += item);
+//       });
+//     }
+//     return result;
+//   },
+
+//   enumerable: false,
+// });
