@@ -93,3 +93,24 @@ const getEyeColorMap = (arr) => {
 };
 
 console.log(getEyeColorMap(condidateArr));
+
+// Test with new teacher
+
+const result2 = condidateArr
+  .filter((cand) => cand.age >= 20 && cand.age <= 25)
+  .map(({ name: fullName, email }) => ({ fullName, email }));
+
+console.log(result2);
+
+// const result3 = condidateArr.reduce((acc, item) => {
+//   if (item.age >= 20 && item.age <= 25) {
+//     acc.push(item);
+//   }
+// });
+
+// console.log(result3);
+
+const result3 = condidateArr.reduce((acc, candidate) => {
+  if (candidate.age >= 20 && candidate.age <= 25) {
+  }
+}, []);
