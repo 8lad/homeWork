@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>JSModule</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="main-title">Welcome to your personal calendar</h1>
+            <form class="form" id="main-form">
+                <label for="task-description">Enter your task description:</label>
+                <input type="text" name="task-description" id="task-description" required>
+                <label for="task-time">Enter start time:</label>
+                <input type="time" name="task-time" id="task-time" min="08:00" max="16:59" value="08:00" required>
+                <label for=" task-duration">Enter task duration in miunetes:</label>
+                <input type="number" name="task-duration" id="task-duration" min="10" max="540" value="10" required>
+                <label for="task-color">Enter task background:</label>
+                <input type="color" name="task-color" id="task-color" value="#679FCD">
+                <button class="main-button" id="button-create">Create task</button>
+            </form>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main class="main">
+            <div class="container">
+                <div class="calendar">
+                    <div class="calendar__container"></div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">8:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">8:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">9:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">9:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">10:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">10:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">11:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">11:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">12:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">12:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">13:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">13:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">14:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">14:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">15:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">15:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">16:00</div>
+                    </div>
+                    <div class="calendar__box calendar__box-even">
+                        <div class="calendar__point">16:30</div>
+                    </div>
+                    <div class="calendar__box calendar__box-odd">
+                        <div class="calendar__point">17:00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="notification"></div>
+            <form class="form form-extra" id="extra-form">
+                <label for="extra-description">Change description:</label>
+                <input type="text" name="extra-description" id="extra-description" required>
+                <label for="extra-time">Start time:</label>
+                <input type="time" name="extra-time" id="extra-time" min="08:00" max="16:59" value="08:00" required>
+                <label for=" extra-duration">Task duration:</label>
+                <input type="number" name="extra-duration" id="extra-duration" min="1" max="540" value="10" required>
+                <button class="main-button" id="button-change">Change task</button>
+                <button class="main-button" id="button-cancel">Cancel</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="js/taskArray.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

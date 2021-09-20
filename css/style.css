@@ -1,0 +1,320 @@
+/* open-sans-300 - latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/open-sans-v23-latin-300.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/open-sans-v23-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v23-latin-300.woff2") format("woff2"), url("../fonts/open-sans-v23-latin-300.woff") format("woff"), url("../fonts/open-sans-v23-latin-300.ttf") format("truetype"), url("../fonts/open-sans-v23-latin-300.svg#OpenSans") format("svg");
+  /* Legacy iOS */
+}
+
+/* open-sans-regular - latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans-v23-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/open-sans-v23-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/open-sans-v23-latin-regular.woff2") format("woff2"), url("../fonts/open-sans-v23-latin-regular.woff") format("woff"), url("../fonts/open-sans-v23-latin-regular.ttf") format("truetype"), url("../fonts/open-sans-v23-latin-regular.svg#OpenSans") format("svg");
+  /* Legacy iOS */
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul[class] {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-weight: 400;
+  font-size: 16px;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+.main-title {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.main-button {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(103, 159, 205, 0.5);
+  border-radius: 10px;
+  border: 2px solid #eeeeee;
+  box-shadow: none;
+  padding: 15px 30px;
+  transition: all 0.5s;
+}
+
+.main-button:hover {
+  border: 2px solid #000;
+}
+
+.header {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.form label,
+.form input {
+  flex-basis: 50%;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.calendar {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  max-height: 1080px;
+  height: 100%;
+}
+
+.calendar__box {
+  height: 60px;
+  position: relative;
+  padding-left: 45px;
+}
+
+.calendar__box-odd {
+  border-top: 1px solid #eeeeee;
+}
+
+.calendar__point {
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.calendar__box-even .calendar__point {
+  font-size: 12px;
+}
+
+.event {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 45px;
+  min-height: 15px;
+  padding: 2px 5px 5px 5px;
+  z-index: 5;
+  background-color: rgba(103, 159, 205, 0.5);
+  border-left: 3px solid #679fcd;
+  max-width: 200px;
+  width: 100%;
+}
+
+.event .delete {
+  top: 0;
+  right: 0;
+}
+
+.event:hover .delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event__title {
+  pointer-events: none;
+  position: relative;
+  padding-top: 0;
+  font-size: 14px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.message {
+  cursor: pointer;
+  border: 2px solid #eeeeee;
+  border-radius: 10px;
+  max-width: 220px;
+  width: 100%;
+  position: relative;
+  padding: 10px 10px 30px 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.message .delete {
+  top: -8px;
+  right: -12px;
+  border-radius: 50%;
+}
+
+.message:hover .delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.message__title {
+  margin-bottom: 20px;
+}
+
+.form-extra {
+  display: none;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px 10px;
+  border: 2px solid #eeeeee;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  z-index: 7;
+  height: fit-content;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.59);
+}
+
+.form-extra.active {
+  display: flex;
+}
+
+.notification {
+  padding-right: 20px;
+  padding-top: 40px;
+  position: fixed;
+  top: 0;
+  right: 10px;
+  max-width: 220px;
+  width: 100%;
+}
+
+.delete {
+  background-color: #f21c2b;
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 10;
+}
+
+.delete__line {
+  background-color: #fff;
+  height: 1px;
+  width: 80%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.delete__line:first-child {
+  transform: rotate(45deg);
+  top: 9px;
+  pointer-events: none;
+}
+
+.delete__line:last-child {
+  transform: rotate(135deg);
+  top: 8px;
+  pointer-events: none;
+}

@@ -1,0 +1,200 @@
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "global";
+
+//  Start header
+
+.header {
+  padding-top: 40px;
+  text-align: center;
+}
+//  End header
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  label,
+  input {
+    flex-basis: 50%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+// Start form
+// End form
+
+// Start calendar
+
+.calendar {
+  @include blockCenter;
+  max-width: 300px;
+  position: relative;
+  overflow: hidden;
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    max-height: 1080px;
+    height: 100%;
+  }
+  &__box {
+    height: 60px;
+    position: relative;
+    padding-left: 45px;
+  }
+  &__box-odd {
+    border-top: 1px solid $borderTopBox;
+  }
+  &__point {
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__box-even {
+    .calendar__point {
+      font-size: 12px;
+    }
+  }
+}
+
+// End calendar
+
+// Start event
+
+.event {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 45px;
+  min-height: 15px;
+  padding: 2px 5px 5px 5px;
+  z-index: 5;
+  background-color: $standardBg;
+  border-left: 3px solid $borderEvent;
+  max-width: 200px;
+  width: 100%;
+  .delete {
+    top: 0;
+    right: 0;
+  }
+  &:hover {
+    .delete {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__title {
+    pointer-events: none;
+    position: relative;
+    padding-top: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+// End event
+
+// Start message
+.message {
+  cursor: pointer;
+  border: 2px solid $borderTopBox;
+  border-radius: 10px;
+  max-width: 220px;
+  width: 100%;
+  position: relative;
+  padding: 10px 10px 30px 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  .delete {
+    top: -8px;
+    right: -12px;
+    border-radius: 50%;
+  }
+  &:hover {
+    .delete {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+}
+// End message
+
+// Start extra form
+
+.form-extra {
+  display: none;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px 10px;
+  border: 2px solid $borderTopBox;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  @include blockCenter;
+  background-color: #fff;
+  z-index: 7;
+  height: fit-content;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.59);
+}
+.form-extra.active {
+  display: flex;
+}
+// End extra form
+
+// Start notification
+.notification {
+  padding-right: 20px;
+  padding-top: 40px;
+  position: fixed;
+  top: 0;
+  right: 10px;
+  max-width: 220px;
+  width: 100%;
+}
+
+// End notification
+
+// Start delete
+.delete {
+  background-color: #f21c2b;
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 10;
+  &__line {
+    background-color: #fff;
+    height: 1px;
+    width: 80%;
+    position: relative;
+    @include blockCenter;
+  }
+  &__line:first-child {
+    transform: rotate(45deg);
+    top: 9px;
+    pointer-events: none;
+  }
+  &__line:last-child {
+    transform: rotate(135deg);
+    top: 8px;
+    pointer-events: none;
+  }
+}
+// End delete
