@@ -106,10 +106,87 @@ function findingTime() {
   let taskTime = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
   return taskTime;
 }
+function aligningEvents() {
+  let sideStep = 45;
+  let events = document.querySelectorAll(".event");
+  let eventsLength = events.length;
+  let maxHeight = 1080;
+  let timeslots = [];
+  let event;
+
+  for (let i = 0; i < maxHeight; i++) {
+    timeslots[i] = [];
+  }
+  events.forEach((element, index) => {
+    element.setAttribute("data-collide", "");
+    element.setAttribute("data-conflicts", 0);
+    element.setAttribute("data-index", index);
+    element.setAttribute(
+      "data-end",
+      parseInt(element.style.top) + parseInt(element.style.height)
+    );
+  });
+
+  for (let i = 0; i < eventsLength; i++) {
+    event = events[i];
+
+    if (parseInt(event.style.top) > event.getAttribute("data-end")) {
+      let temp = parseInt(event.style.top);
+      event.style.top = `${event.getAttribute("data-end")}px`;
+      event.setAttribute("data-end", temp);
+    }
+
+    for (
+      let j = parseInt(event.style.top);
+      j < parseInt(event.getAttribute("data-end"));
+      j++
+    ) {
+      timeslots[j].push(event.getAttribute("data-index"));
+    }
+  }
+
+  for (let i = 0; i < maxHeight; i++) {
+    let next_hindex = 0;
+    let timeslotLength = timeslots[i].length;
+
+    if (timeslotLength > 0) {
+      for (let j = 0; j < timeslotLength; j++) {
+        event = events[timeslots[i][j]];
+
+        if (
+          !event.getAttribute("data-conflicts") ||
+          event.getAttribute("data-conflicts") < timeslotLength
+        ) {
+          event.setAttribute("data-conflicts", timeslotLength);
+
+          if (event.getAttribute("data-collide") == 0) {
+            event.setAttribute("data-collide", next_hindex);
+            next_hindex++;
+          }
+        }
+      }
+    }
+  }
+  for (let i = 0; i < events.length; i++) {
+    event = events[i];
+
+    let blockStart = parseInt(event.style.top);
+    let blockWidth = 200 / parseInt(event.getAttribute("data-conflicts"));
+
+    let blockLeftSpace =
+      parseInt(event.getAttribute("data-collide")) * blockWidth;
+
+    event.style.width = blockWidth + "px";
+    event.style.top = blockStart + "px";
+    event.style.left = sideStep + blockLeftSpace + "px";
+  }
+}
 
 // Main code
 
 renderingEvents(eventsMainContainer, eventsList);
+
+aligningEvents();
 
 mainForm.addEventListener("click", (event) => {
   let eventTitle = mainForm.querySelector("#task-description");
@@ -132,6 +209,7 @@ mainForm.addEventListener("click", (event) => {
     eventTitle.value = "";
     eventDuration.value = 10;
     eventStart.value = "08:00";
+    aligningEvents();
   }
 });
 
@@ -141,11 +219,13 @@ mainContainer.addEventListener("click", (event) => {
   let extraDuration = extraForm.querySelector("#extra-duration");
   if (event.target.classList.contains("delete")) {
     event.target.parentElement.remove();
+    aligningEvents();
   }
 
   if (event.target.id === "button-cancel") {
     event.preventDefault();
     extraForm.classList.remove("active");
+    aligningEvents();
   }
   if (event.target.classList.contains("event")) {
     event.preventDefault();
@@ -169,6 +249,7 @@ mainContainer.addEventListener("click", (event) => {
     extraStart.value = "08:00";
     extraTitle.value = "";
     extraForm.classList.remove("active");
+    aligningEvents();
   }
 });
 
